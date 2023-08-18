@@ -16,13 +16,12 @@ function posicaoRandomica(){
 
   let mosca = document.createElement('img')
   mosca.src = "/img/mosca.png"
-  mosca.className = tamanhoRandomico()
+  mosca.className = tamanhoRandomico() + ' ' + ladoRandomico()
   mosca.style.left = posicaoX + 'px'
   mosca.style.top = posicaoY + 'px'
   mosca.style.position = 'absolute'
 
   document.body.appendChild(mosca)
-
 
 }
 
@@ -39,4 +38,14 @@ function tamanhoRandomico(){
   }
 }
 
+function ladoRandomico(){
+  let classe = Math.floor(Math.random()*2)
+
+  switch (classe){
+    case 0:
+      return 'ladoA'
+    case 1:
+    return 'ladoB'
+  }
+}
 
