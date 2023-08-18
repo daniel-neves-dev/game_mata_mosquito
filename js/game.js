@@ -1,9 +1,22 @@
 let altura = 0
 let largura = 0
 let vidas = 1
-let tempo = 3
+let tempo = 10
 
-function ajustarTelaGame(){
+// Define tempo de mosca na tela
+let moscaTempo = 1500
+let nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if (nivel === 'normal') {
+  moscaTempo = 1500
+} else if (nivel === 'dificil') {
+  moscaTempo = 1000
+} else if (nivel === 'chucknorris') {
+  moscaTempo = 750
+}
+
+function ajustarTelaGame() {
   altura = window.innerHeight
   largura = window.innerWidth
 }
@@ -11,25 +24,25 @@ function ajustarTelaGame(){
 ajustarTelaGame()
 
 // tempo de jogo
-let cronometro = setInterval(function (){
+let cronometro = setInterval(function () {
   tempo -= 1
-  if(tempo < 0){
+  if (tempo < 0) {
     clearInterval(cronometro)
     clearInterval(criaMosca)
     window.location.href = "vitoria.html"
-  } else{
+  } else {
     document.getElementById('cronometro').innerHTML = tempo
   }
 }, 1000)
 
-function posicaoRandomica(){
+function posicaoRandomica() {
   // remover
-  if(document.getElementById('mosca')){
+  if (document.getElementById('mosca')) {
     document.getElementById('mosca').remove()
 
-    if (vidas > 3){
+    if (vidas > 3) {
       window.location.href = 'game_over.html'
-    } else{
+    } else {
       document.getElementById('v' + vidas).src = '/img/coracao_vazio.png'
       vidas++
     }
@@ -52,7 +65,7 @@ function posicaoRandomica(){
   mosca.id = 'mosca'
 
   // mata a mosca
-  mosca.onclick = function (){
+  mosca.onclick = function () {
     this.remove()
   }
 
@@ -60,10 +73,10 @@ function posicaoRandomica(){
 }
 
 // muda a mosca de tamanho
-function tamanhoRandomico(){
-  let classe = Math.floor(Math.random()*3)
+function tamanhoRandomico() {
+  let classe = Math.floor(Math.random() * 3)
 
-  switch (classe){
+  switch (classe) {
     case 0:
       return 'mosca1'
     case 1:
@@ -74,14 +87,14 @@ function tamanhoRandomico(){
 }
 
 // vira a mosca de lado
-function ladoRandomico(){
-  let classe = Math.floor(Math.random()*2)
+function ladoRandomico() {
+  let classe = Math.floor(Math.random() * 2)
 
-  switch (classe){
+  switch (classe) {
     case 0:
       return 'ladoA'
     case 1:
-    return 'ladoB'
+      return 'ladoB'
   }
 }
 
