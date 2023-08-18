@@ -14,8 +14,12 @@ function posicaoRandomica(){
   if(document.getElementById('mosca')){
     document.getElementById('mosca').remove()
 
-    document.getElementById('v' + vidas).src = '/img/coracao_vazio.png'
-    vidas++
+    if (vidas > 3){
+      alert('Game over')
+    } else{
+      document.getElementById('v' + vidas).src = '/img/coracao_vazio.png'
+      vidas++
+    }
   }
 
   let posicaoX = Math.floor(Math.random() * largura) - 90
