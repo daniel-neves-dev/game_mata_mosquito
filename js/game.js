@@ -9,6 +9,7 @@ ajustarTelaGame()
 
 function posicaoRandomica(){
 
+  // remover mosca da tela
   if(document.getElementById('mosca')){
     document.getElementById('mosca').remove()
   }
