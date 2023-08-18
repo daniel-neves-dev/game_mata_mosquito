@@ -14,6 +14,8 @@ ajustarTelaGame()
 let cronometro = setInterval(function (){
   tempo -= 1
   if(tempo < 0){
+    clearInterval(cronometro)
+    clearInterval(criaMosca)
     alert('Vitoria')
   } else{
     document.getElementById('cronometro').innerHTML = tempo
