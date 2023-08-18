@@ -9,9 +9,11 @@ ajustarTelaGame()
 
 function posicaoRandomica(){
 
-  // remover mosca da tela
+  // remover
   if(document.getElementById('mosca')){
     document.getElementById('mosca').remove()
+
+    document.getElementById('v1').src = '/img/coracao_vazio.png'
   }
 
   let posicaoX = Math.floor(Math.random() * largura) - 90
@@ -27,6 +29,10 @@ function posicaoRandomica(){
   mosca.style.top = posicaoY + 'px'
   mosca.style.position = 'absolute'
   mosca.id = 'mosca'
+
+  mosca.onclick = function (){
+    this.remove()
+  }
   document.body.appendChild(mosca)
 
 }
