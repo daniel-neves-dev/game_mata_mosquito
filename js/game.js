@@ -1,12 +1,24 @@
 let altura = 0
 let largura = 0
 let vidas = 1
+let tempo = 3
+
 function ajustarTelaGame(){
   altura = window.innerHeight
   largura = window.innerWidth
 }
 
 ajustarTelaGame()
+
+// tempo de jogo
+let cronometro = setInterval(function (){
+  tempo -= 1
+  if(tempo < 0){
+    alert('Vitoria')
+  } else{
+    document.getElementById('cronometro').innerHTML = tempo
+  }
+}, 1000)
 
 function posicaoRandomica(){
 
