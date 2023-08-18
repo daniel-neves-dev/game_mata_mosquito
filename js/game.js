@@ -1,5 +1,6 @@
 let altura = 0
 let largura = 0
+let vidas = 1
 function ajustarTelaGame(){
   altura = window.innerHeight
   largura = window.innerWidth
@@ -13,7 +14,8 @@ function posicaoRandomica(){
   if(document.getElementById('mosca')){
     document.getElementById('mosca').remove()
 
-    document.getElementById('v1').src = '/img/coracao_vazio.png'
+    document.getElementById('v' + vidas).src = '/img/coracao_vazio.png'
+    vidas++
   }
 
   let posicaoX = Math.floor(Math.random() * largura) - 90
