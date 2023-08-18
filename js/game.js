@@ -8,6 +8,11 @@ function ajustarTelaGame(){
 ajustarTelaGame()
 
 function posicaoRandomica(){
+
+  if(document.getElementById('mosca')){
+    document.getElementById('mosca').remove()
+  }
+
   let posicaoX = Math.floor(Math.random() * largura) - 90
   let posicaoY = Math.floor(Math.random() * altura) - 90
 
@@ -20,7 +25,7 @@ function posicaoRandomica(){
   mosca.style.left = posicaoX + 'px'
   mosca.style.top = posicaoY + 'px'
   mosca.style.position = 'absolute'
-
+  mosca.id = 'mosca'
   document.body.appendChild(mosca)
 
 }
