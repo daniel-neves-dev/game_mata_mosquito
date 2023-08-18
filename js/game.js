@@ -16,14 +16,13 @@ let cronometro = setInterval(function (){
   if(tempo < 0){
     clearInterval(cronometro)
     clearInterval(criaMosca)
-    alert('Vitoria')
+    window.location.href = "vitoria.html"
   } else{
     document.getElementById('cronometro').innerHTML = tempo
   }
 }, 1000)
 
 function posicaoRandomica(){
-
   // remover
   if(document.getElementById('mosca')){
     document.getElementById('mosca').remove()
@@ -36,12 +35,14 @@ function posicaoRandomica(){
     }
   }
 
+  //posicao da mosca dentro da tela
   let posicaoX = Math.floor(Math.random() * largura) - 90
   let posicaoY = Math.floor(Math.random() * altura) - 90
 
   posicaoX = posicaoX < 0 ? 0 : posicaoX
   posicaoY = posicaoY < 0 ? 0 : posicaoY
 
+  // cria a mosca na tela
   let mosca = document.createElement('img')
   mosca.src = "/img/mosca.png"
   mosca.className = tamanhoRandomico() + ' ' + ladoRandomico()
@@ -50,13 +51,15 @@ function posicaoRandomica(){
   mosca.style.position = 'absolute'
   mosca.id = 'mosca'
 
+  // mata a mosca
   mosca.onclick = function (){
     this.remove()
   }
-  document.body.appendChild(mosca)
 
+  document.body.appendChild(mosca)
 }
 
+// muda a mosca de tamanho
 function tamanhoRandomico(){
   let classe = Math.floor(Math.random()*3)
 
@@ -70,6 +73,7 @@ function tamanhoRandomico(){
   }
 }
 
+// vira a mosca de lado
 function ladoRandomico(){
   let classe = Math.floor(Math.random()*2)
 
